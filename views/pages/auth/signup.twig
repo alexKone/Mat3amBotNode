@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description" content="Chameleon Admin is a modern Bootstrap 4 webapp &amp; admin dashboard html template with a large number of components, elegant design, clean and organized code.">
+  <meta name="keywords" content="admin template, Chameleon admin template, dashboard template, gradient admin template, responsive admin template, webapp, eCommerce dashboard, analytic dashboard">
+  <meta name="author" content="ThemeSelect">
+  <title>Dashboard - Chameleon Admin - Modern Bootstrap 4 WebApp & Dashboard HTML Template + UI Kit</title>
+  <link rel="apple-touch-icon" href="theme-assets/images/ico/apple-icon-120.png">
+  <link rel="shortcut icon" type="image/x-icon" href="theme-assets/images/ico/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
+  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
+  {#  {% block stylesheets %}#}
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="theme-assets/css/vendors.css">
+  <link rel="stylesheet" type="text/css" href="theme-assets/vendors/css/charts/chartist.css">
+  <!-- END VENDOR CSS-->
+  <!-- BEGIN CHAMELEON  CSS-->
+  <link rel="stylesheet" type="text/css" href="theme-assets/css/app-lite.css">
+  <!-- END CHAMELEON  CSS-->
+  <!-- BEGIN Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="theme-assets/css/core/menu/menu-types/vertical-menu.css">
+  <link rel="stylesheet" type="text/css" href="theme-assets/css/core/colors/palette-gradient.css">
+  <link rel="stylesheet" type="text/css" href="theme-assets/css/pages/dashboard-ecommerce.css">
+  <!-- END Page Level CSS-->
+  <!-- BEGIN Custom CSS-->
+  <!-- END Custom CSS-->
+  {#  {% endblock %}#}
+</head>
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
+
+
+{#{% block content %}#}
+
+{{ errorMessage }}
+
+<section class="content-wrapper signup-form">
+  <div class="content-body">
+    <form method="post" class="row match-height mx-auto">
+      <div class="col-xl-6 col-md-9 col-sm-12 mx-auto">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <h4 class="card-title">Signup Form</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+            </div>
+            <div class="card-body">
+              <form class="form">
+                <div class="form-body">
+
+                  <div class="form-group">
+                    <label for="email" class="sr-only">E-mail</label>
+                    <input type="email" id="email" class="form-control" placeholder="E-mail" name="email">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phoneNumber" class="sr-only">Phone Number</label>
+                    <input type="tel" id="phoneNumber" class="form-control" placeholder="+000 0 000 000" name="phoneNumber">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="password" class="sr-only">Last Name</label>
+                    <input type="text" id="password" class="form-control" placeholder="******" name="password">
+                  </div>
+
+{#                  <div class="form-group">#}
+{#                    <label for="donationinput4" class="sr-only">Contact Number</label>#}
+{#                    <input type="text" id="donationinput4" class="form-control" placeholder="Phone" name="phone">#}
+{#                  </div>#}
+{#                  <div class="form-group">#}
+{#                    <label for="donationinput7" class="sr-only">Message</label>#}
+{#                    <textarea id="donationinput7" rows="5" class="form-control square" name="message" placeholder="message"></textarea>#}
+{#                  </div>#}
+
+                </div>
+                <div class="form-actions center">
+                  <button type="submit" class="btn btn-outline-primary">Send</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+{#{% endblock %}#}
+
+</body>
+</html>
