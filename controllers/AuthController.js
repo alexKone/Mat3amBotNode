@@ -1,18 +1,53 @@
-const e = require("express");
-const { COOKIE_USER_NAME, COOKIE_USER_TOKEN } = require("../config");
-const { auth, db } = require("../fb");
+const { signInWithEmailAndPassword } = require("firebase/auth");
+const {
+  COOKIE_USER_NAME,
+  COOKIE_USER_TOKEN
+} = require("../config");
+const {
+  auth,
+  db
+} = require("../fb");
+
 
 const getLogin = async (req, res, next) => {
   res.render('pages/auth/login');
 }
+const postLogin = async (req, res, next) => {
+  const { email, password } = req.body;
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log(userCredential)
+      debugger;
+      // console.log('userCredential => ', userCredential.user.accessToken);
+      res.cookie(COOKIE_USER_TOKEN, userCredential.user.accessToken);
+      res.cookie(COOKIE_USER_NAME, userCredential.user.uid);
+
+      res.redirect('/');
+    })
+    .catch(error => {
+      res.render('pages/auth/login', {
+        error: true,
+        errorMessage: 'Verify your infos'
+      })
+    })
+}
+
 const getSignUp = async (req, res, next) => {
   res.render('pages/auth/signup');
 }
 
-postSignUp = async (req, res, next) => {
+const postSignUp = async (req, res, next) => {
   try {
-    const { email, password, phoneNumber } = req.body;
-    const userRecord = await auth.createUser({ email, phoneNumber, password });
+    const {
+      email,
+      password,
+      phoneNumber
+    } = req.body;
+    const userRecord = await auth.createUser({
+      email,
+      phoneNumber,
+      password
+    });
 
     const docRef = db.collection('users').doc();
     await docRef.set({
@@ -34,8 +69,17 @@ postSignUp = async (req, res, next) => {
   }
 }
 
+const logout = async (req, res, next) => {
+  auth.signOut();
+  res.cookie(COOKIE_USER_NAME, '')
+  res.cookie(COOKIE_USER_TOKEN, '')
+  res.redirect('/login')
+}
+
 module.exports = {
   getLogin,
   getSignUp,
-  postSignUp
+  postSignUp,
+  postLogin,
+  logout
 }
