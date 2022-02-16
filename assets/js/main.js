@@ -35,5 +35,8 @@ onAuthStateChanged(auth, async (user) => {
 document.getElementById('logout_btn').addEventListener('click', evt => {
   evt.preventDefault();
   auth.signOut()
-    .then(r => window.location.replace('/login'))
+    .then(r => {
+      localStorage.clear();
+      window.location.replace('/login')
+    })
 });
