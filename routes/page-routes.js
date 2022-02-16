@@ -1,7 +1,7 @@
 const express = require('express');
 const { getLogin, getSignUp, postSignUp, postLogin } = require('../controllers/AuthController');
 const { Homepage } = require('../controllers/PageController');
-const {SettingsPage} = require("../controllers/profile/ProfileController");
+const {SettingsPage, getEditProfile, getSettingsPage} = require("../controllers/profile/ProfileController");
 const { currentUser } = require('../middlewares/currentUser');
 
 const router = express.Router();
@@ -13,7 +13,8 @@ router.post('/signup', postSignUp);
 
 
 // Settings Routes
-router.get('/settings', currentUser, SettingsPage)
+router.get('/settings', currentUser, getSettingsPage)
+router.get('/settings/profile/edit', currentUser, getEditProfile)
 
 router.get('/',currentUser, Homepage);
 

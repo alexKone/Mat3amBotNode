@@ -10,14 +10,15 @@ const {
 
 
 const getLogin = async (req, res, next) => {
-  res.render('pages/auth/login');
+  res.render('pages/auth/login', {
+    currentUrl: res.locals.urlHost
+  });
 }
 const postLogin = async (req, res, next) => {
   const { email, password } = req.body;
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log(userCredential)
-      debugger;
       // console.log('userCredential => ', userCredential.user.accessToken);
       res.cookie(COOKIE_USER_TOKEN, userCredential.user.accessToken);
       res.cookie(COOKIE_USER_NAME, userCredential.user.uid);
@@ -33,7 +34,9 @@ const postLogin = async (req, res, next) => {
 }
 
 const getSignUp = async (req, res, next) => {
-  res.render('pages/auth/signup');
+  res.render('pages/auth/signup', {
+    currentUrl: res.locals.urlHost
+  });
 }
 
 const postSignUp = async (req, res, next) => {

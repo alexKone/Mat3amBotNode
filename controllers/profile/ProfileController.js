@@ -1,12 +1,23 @@
-const { getUserByUid } = require("../../helpers/firebaseAdminHelpers")
+const { getUserByUid } = require("../../helpers/firebaseAdminHelpers");
 
-const SettingsPage = async (req, res) => {
+const getSettingsPage = async (req, res) => {
   res.render('pages/settings/index', {
-    user: res.locals.user
+    user: res.locals.user,
+    currentUrl: res.locals.urlHost,
+    title: 'Settings'
+  })
+}
+
+const getEditProfile = async (req, res) => {
+  res.render('pages/settings/profile/edit', {
+    user: res.locals.user,
+    currentUrl: res.locals.urlHost,
+    title: 'Edit Profile'
   })
 }
 
 
 module.exports = {
-  SettingsPage
+  getSettingsPage,
+  getEditProfile
 }
